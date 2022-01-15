@@ -1,4 +1,7 @@
-process.env.NODE_ENV !== 'production' && require('dotenv').config() // same as if statement, if left is truthy right will fire
+// process.env.NODE_ENV !== 'production' && require('dotenv').config() // same as if statement, if left is truthy right will fire
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+  }
 
 const methodOverride = require('method-override')
 const express = require('express');
@@ -88,4 +91,4 @@ function checkNotAuthenticated(req, res, next){
     next()
 }
 
-app.listen(3000)
+app.listen(3000, () => console.log('server running!'))
